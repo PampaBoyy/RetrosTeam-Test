@@ -1,0 +1,7 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Minimum permissions for the main window. No shell, no fs plugin: privileged work goes through our own validated commands.",
+  "windows": ["main"],
+  "permissions": ["core:default", "dialog:allow-open"]
+}

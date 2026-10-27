@@ -1,0 +1,25 @@
+name: Build Windows exe
+on:
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: swatinem/rust-cache@v2
+        with: { workspaces: "src-tauri" }
+      - run: npm install
+      - run: npx tauri icon src-tauri/icons/source.png
+      - name: Rust tests
+        run: cargo test --manifest-path src-tauri/Cargo.toml
+      - name: Build exe
+        run: npm run tauri build -- --no-bundle
+      - uses: actions/upload-artifact@v4
+        with:
+          name: RetrosTeam-windows
+          path: src-tauri/target/release/retrosteam.exe
