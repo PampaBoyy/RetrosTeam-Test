@@ -38,3 +38,11 @@ label.f { display: block; color: var(--muted); font-size: 12px; margin: 14px 0 6
 .msg { margin-top: 10px; font-size: 13px; } .msg.err { color: #ff6b6b; } .msg.ok { color: var(--ok); }
 ul.layout { columns: 2; margin: 8px 0 0; padding-left: 18px; color: var(--muted); font-size: 12.5px; }
 .preview-banner { background: var(--warn); color: #231a00; text-align: center; padding: 4px; font-size: 12px; font-weight: 600; }
+h2.section { font-size: 17px; margin: 26px 0 12px; }
+.search { background: var(--panel-2); color: var(--text); border: 1px solid var(--border); border-radius: 8px; padding: 9px 12px; font: inherit; width: min(420px, 100%); }
+.search:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.bar { height: 8px; background: var(--panel-2); border-radius: 99px; overflow: hidden; border: 1px solid var(--border); }
+.bar .fill { height: 100%; background: var(--accent); transition: width .2s; }
+.bar .fill.indet { width: 35%; animation: slide 1.2s infinite ease-in-out; }
+@keyframes slide { from { margin-left: -35%; } to { margin-left: 100%; } }
+@media (prefers-reduced-motion: reduce) { .bar .fill.indet { animation: none; width: 100%; opacity: .5; } .bar .fill { transition: none; } }

@@ -1,6 +1,8 @@
+mod catalog;
 mod commands;
 mod db;
 mod error;
+mod installer;
 mod paths;
 mod settings;
 mod state;
@@ -19,7 +21,11 @@ pub fn run() {
             commands::get_app_info,
             commands::get_settings,
             commands::save_settings,
-            commands::set_data_root
+            commands::set_data_root,
+            commands::list_components,
+            commands::install_component,
+            commands::cancel_install,
+            commands::uninstall_component
         ])
         .run(tauri::generate_context!())
         .expect("error while running RetrosTeam");

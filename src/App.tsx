@@ -3,6 +3,9 @@ import { api, isDesktop, type AppInfo, type Settings } from "./lib/api";
 import { Home } from "./pages/Home";
 import { Library } from "./pages/Library";
 import { Planned } from "./pages/Planned";
+import { Emulators } from "./pages/Emulators";
+import { Downloads } from "./pages/Downloads";
+import { useInstalls } from "./hooks/useInstalls";
 import { SettingsPage } from "./pages/SettingsPage";
 
 const NAV = [
@@ -17,8 +20,6 @@ const NAV = [
 type PageId = (typeof NAV)[number]["id"];
 
 const PLANNED: Record<string, { title: string; milestone: string; text: string }> = {
-  emulators: { title: "Emuladores e Cores", milestone: "Marcos 3–5", text: "Registro de componentes, adaptadores de emuladores e host Libretro." },
-  downloads: { title: "Downloads", milestone: "Marco 3", text: "Gerenciador de downloads com verificação de integridade." },
   ports: { title: "Jogos e Ports", milestone: "Marco 7", text: "Manifestos de projetos, recompilações e mods." },
   community: { title: "Comunidade", milestone: "Pós-Marco 8", text: "Integrações opcionais (ex.: RetroAchievements), somente após o app offline estar estável." },
 };
@@ -37,6 +38,7 @@ export default function App() {
   const [info, setInfo] = useState<AppInfo | null>(null);
   const [settings, setSettings] = useState<Settings | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const { progress, dismiss } = useInstalls();
 
   useEffect(() => {
     Promise.all([api.appInfo(), api.getSettings()])
@@ -65,7 +67,9 @@ export default function App() {
         <main className="main">
           {error && <div className="card msg err" role="alert">Falha ao iniciar: {error}</div>}
           {!error && (!info || !settings) && <p className="sub">Carregando…</p>}
-          {info && settings && page === "home" && <Home info={info} />}
+          {info && settings && page === "home" && <Home info={info} progress={progress} />}
+          {info && settings && page === "emulators" && <Emulators progress={progress} dismiss={dismiss} />}
+          {info && settings && page === "downloads" && <Downloads progress={progress} />}
           {info && settings && page === "library" && <Library />}
           {info && settings && page === "settings" && (
             <SettingsPage info={info} settings={settings} onSettings={setSettings} />

@@ -12,6 +12,8 @@ pub enum AppError {
     Json(#[from] serde_json::Error),
     #[error("{0}")]
     Invalid(String),
+    #[error("operação cancelada")]
+    Cancelled,
 }
 
 // Errors cross the IPC boundary as plain strings the UI can display.

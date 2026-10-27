@@ -5,7 +5,7 @@ Risco conhecido: o host Libretro (vídeo/áudio/entrada) é o maior desafio e fi
 possivelmente com janela própria; a UI web não renderiza frames de emulação diretamente.
 
 ## Fronteira de segurança
-O frontend só chama comandos explícitos de `src-tauri/src/commands.rs` (`get_app_info`, `get_settings`, `save_settings`, `set_data_root`).
+O frontend só chama comandos explícitos de `src-tauri/src/commands.rs` (`get_app_info`, `get_settings`, `save_settings`, `set_data_root`, `list_components`, `install_component`, `cancel_install`, `uninstall_component`).
 Não há plugin de shell nem de fs habilitado (ver `capabilities/default.json`); só `dialog:allow-open` para escolher pastas.
 CSP restritiva em `tauri.conf.json`.
 
@@ -14,6 +14,8 @@ CSP restritiva em `tauri.conf.json`.
 - `db` — migrações versionadas, cada uma em transação.
 - `settings` — JSON validado, gravação atômica (temp + rename).
 - `state` — resolve modo (portátil/instalado), pasta de dados, abre o banco.
+- `catalog` + `catalog.json` — componentes aprovados e allowlist de hosts.
+- `installer` — resolve fonte oficial, baixa em streaming (`.part`), confere SHA-256, extrai com segurança, instala e registra; cancelamento só na fase de download.
 - `error` — `AppError` serializável como texto para a UI.
 
 ## Pastas
@@ -28,3 +30,6 @@ Jogo > plataforma > global > padrão do componente.
 - Idioma é só preferência salva; ainda não há traduções.
 - `safe_join` é léxico; verificação de symlinks virá junto da extração de arquivos (Marco 3).
 - Rede: nenhuma operação do Marco 1 usa rede; tudo funciona offline.
+- Sem pausa/retomada de downloads; sem limite configurável de downloads simultâneos; sem checagem de espaço em disco além do erro de gravação.
+- Padrões de nome de arquivo das releases do GitHub não foram testados contra releases reais; se não casarem, o app mostra erro claro.
+- Updates de componentes (comparar versão instalada x disponível) ainda não existem; 'Reinstalar / atualizar' baixa a versão mais recente.

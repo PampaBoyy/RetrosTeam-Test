@@ -1,0 +1,423 @@
+{
+ "catalogVersion": 1,
+ "components": [
+  {
+   "id": "emu-retroarch",
+   "name": "RetroArch (frontend Libretro)",
+   "kind": "emulator",
+   "platforms": [
+    "Libretro"
+   ],
+   "license": "GPL-3.0",
+   "homepage": "https://www.libretro.com/",
+   "source": {
+    "type": "direct_url",
+    "url": "https://buildbot.libretro.com/nightly/windows/x86_64/RetroArch.7z"
+   },
+   "exePattern": "(?i)^retroarch\\.exe$",
+   "notes": "Pacote nightly oficial do buildbot da Libretro (sem versão fixa). Usado no Marco 4 para rodar os cores baixados."
+  },
+  {
+   "id": "emu-pcsx2",
+   "name": "PCSX2",
+   "kind": "emulator",
+   "platforms": [
+    "PlayStation 2"
+   ],
+   "license": "GPL-3.0",
+   "homepage": "https://pcsx2.net/",
+   "source": {
+    "type": "github_release",
+    "repo": "PCSX2/pcsx2",
+    "assetPattern": "(?i)windows.*(x64|64bit).*qt.*\\.7z$"
+   },
+   "exePattern": "(?i)^pcsx2-qt\\.exe$",
+   "portableMarker": "portable.txt",
+   "notes": "Exige BIOS do PS2, fornecida por você."
+  },
+  {
+   "id": "emu-duckstation",
+   "name": "DuckStation",
+   "kind": "emulator",
+   "platforms": [
+    "PlayStation"
+   ],
+   "license": "CC BY-NC-ND 4.0",
+   "homepage": "https://github.com/stenzek/duckstation",
+   "source": {
+    "type": "github_release",
+    "repo": "stenzek/duckstation",
+    "assetPattern": "(?i)windows.*x64.*\\.zip$"
+   },
+   "exePattern": "(?i)^duckstation.*\\.exe$",
+   "portableMarker": "portable.txt",
+   "notes": "Exige BIOS do PS1, fornecida por você."
+  },
+  {
+   "id": "emu-rpcs3",
+   "name": "RPCS3",
+   "kind": "emulator",
+   "platforms": [
+    "PlayStation 3"
+   ],
+   "license": "GPL-2.0",
+   "homepage": "https://rpcs3.net/",
+   "source": {
+    "type": "github_release",
+    "repo": "RPCS3/rpcs3-binaries-win",
+    "assetPattern": "(?i)win64.*\\.7z$"
+   },
+   "exePattern": "(?i)^rpcs3\\.exe$",
+   "notes": "Exige o firmware do PS3, baixado do site oficial da Sony."
+  },
+  {
+   "id": "emu-azahar",
+   "name": "Azahar (continuação do Citra)",
+   "kind": "emulator",
+   "platforms": [
+    "Nintendo 3DS"
+   ],
+   "license": "GPL-2.0",
+   "homepage": "https://azahar-emu.org/",
+   "source": {
+    "type": "github_release",
+    "repo": "azahar-emu/azahar",
+    "assetPattern": "(?i)windows.*\\.zip$"
+   },
+   "exePattern": "(?i)^azahar.*\\.exe$",
+   "notes": "O Citra original foi encerrado em 2024; o Azahar é um projeto ativo derivado dele."
+  },
+  {
+   "id": "emu-cemu",
+   "name": "Cemu",
+   "kind": "emulator",
+   "platforms": [
+    "Wii U"
+   ],
+   "license": "MPL-2.0",
+   "homepage": "https://cemu.info/",
+   "source": {
+    "type": "github_release",
+    "repo": "cemu-project/Cemu",
+    "assetPattern": "(?i)windows-x64.*\\.zip$"
+   },
+   "exePattern": "(?i)^cemu\\.exe$"
+  },
+  {
+   "id": "emu-melonds",
+   "name": "melonDS",
+   "kind": "emulator",
+   "platforms": [
+    "Nintendo DS"
+   ],
+   "license": "GPL-3.0",
+   "homepage": "https://melonds.kuribo64.net/",
+   "source": {
+    "type": "github_release",
+    "repo": "melonDS-emu/melonDS",
+    "assetPattern": "(?i)win.*(x64|x86_64).*\\.zip$"
+   },
+   "exePattern": "(?i)^melonds\\.exe$"
+  },
+  {
+   "id": "emu-mgba",
+   "name": "mGBA",
+   "kind": "emulator",
+   "platforms": [
+    "Game Boy Advance"
+   ],
+   "license": "MPL-2.0",
+   "homepage": "https://mgba.io/",
+   "source": {
+    "type": "github_release",
+    "repo": "mgba-emu/mgba",
+    "assetPattern": "(?i)win64.*\\.7z$"
+   },
+   "exePattern": "(?i)^mgba\\.exe$"
+  },
+  {
+   "id": "emu-flycast",
+   "name": "Flycast",
+   "kind": "emulator",
+   "platforms": [
+    "Dreamcast"
+   ],
+   "license": "GPL-2.0",
+   "homepage": "https://flyinghead.github.io/flycast-builds/",
+   "source": {
+    "type": "github_release",
+    "repo": "flyinghead/flycast",
+    "assetPattern": "(?i)win.*64.*\\.zip$"
+   },
+   "exePattern": "(?i)^flycast\\.exe$"
+  },
+  {
+   "id": "emu-xemu",
+   "name": "xemu",
+   "kind": "emulator",
+   "platforms": [
+    "Xbox"
+   ],
+   "license": "GPL-2.0",
+   "homepage": "https://xemu.app/",
+   "source": {
+    "type": "github_release",
+    "repo": "xemu-project/xemu",
+    "assetPattern": "(?i)xemu-win.*release.*\\.zip$"
+   },
+   "exePattern": "(?i)^xemu\\.exe$",
+   "notes": "Exige BIOS e HDD do Xbox, fornecidos por você."
+  },
+  {
+   "id": "emu-vita3k",
+   "name": "Vita3K",
+   "kind": "emulator",
+   "platforms": [
+    "PlayStation Vita"
+   ],
+   "license": "GPL-3.0",
+   "homepage": "https://vita3k.org/",
+   "source": {
+    "type": "github_release",
+    "repo": "Vita3K/Vita3K",
+    "assetPattern": "(?i)windows.*\\.zip$"
+   },
+   "exePattern": "(?i)^vita3k\\.exe$"
+  },
+  {
+   "id": "emu-dolphin",
+   "name": "Dolphin",
+   "kind": "emulator",
+   "platforms": [
+    "GameCube",
+    "Wii"
+   ],
+   "license": "GPL-2.0+",
+   "homepage": "https://dolphin-emu.org/download/",
+   "source": {
+    "type": "manual",
+    "url": "https://dolphin-emu.org/download/"
+   },
+   "notes": "Sem download automático aprovado ainda (as versões não saem pelo GitHub). Baixe do site oficial."
+  },
+  {
+   "id": "emu-ppsspp",
+   "name": "PPSSPP",
+   "kind": "emulator",
+   "platforms": [
+    "PSP"
+   ],
+   "license": "GPL-2.0",
+   "homepage": "https://www.ppsspp.org/download",
+   "source": {
+    "type": "manual",
+    "url": "https://www.ppsspp.org/download"
+   },
+   "notes": "Sem download automático aprovado ainda. Baixe do site oficial ou use o core Libretro do PPSSPP."
+  },
+  {
+   "id": "core-nestopia",
+   "name": "Nestopia UE",
+   "kind": "core",
+   "platforms": [
+    "NES"
+   ],
+   "license": "GPL-2.0",
+   "homepage": "https://www.libretro.com/",
+   "source": {
+    "type": "libretro_core",
+    "file": "nestopia_libretro"
+   }
+  },
+  {
+   "id": "core-fceumm",
+   "name": "FCEUmm",
+   "kind": "core",
+   "platforms": [
+    "NES"
+   ],
+   "license": "GPL-2.0",
+   "homepage": "https://www.libretro.com/",
+   "source": {
+    "type": "libretro_core",
+    "file": "fceumm_libretro"
+   }
+  },
+  {
+   "id": "core-snes9x",
+   "name": "Snes9x",
+   "kind": "core",
+   "platforms": [
+    "SNES"
+   ],
+   "license": "Não comercial (licença própria)",
+   "homepage": "https://www.libretro.com/",
+   "source": {
+    "type": "libretro_core",
+    "file": "snes9x_libretro"
+   }
+  },
+  {
+   "id": "core-gambatte",
+   "name": "Gambatte",
+   "kind": "core",
+   "platforms": [
+    "Game Boy",
+    "Game Boy Color"
+   ],
+   "license": "GPL-2.0",
+   "homepage": "https://www.libretro.com/",
+   "source": {
+    "type": "libretro_core",
+    "file": "gambatte_libretro"
+   }
+  },
+  {
+   "id": "core-mgba",
+   "name": "mGBA",
+   "kind": "core",
+   "platforms": [
+    "Game Boy Advance",
+    "Game Boy",
+    "Game Boy Color"
+   ],
+   "license": "MPL-2.0",
+   "homepage": "https://www.libretro.com/",
+   "source": {
+    "type": "libretro_core",
+    "file": "mgba_libretro"
+   }
+  },
+  {
+   "id": "core-genesis-plus-gx",
+   "name": "Genesis Plus GX",
+   "kind": "core",
+   "platforms": [
+    "Mega Drive",
+    "Master System",
+    "Game Gear",
+    "Sega CD"
+   ],
+   "license": "Não comercial (licença própria)",
+   "homepage": "https://www.libretro.com/",
+   "source": {
+    "type": "libretro_core",
+    "file": "genesis_plus_gx_libretro"
+   }
+  },
+  {
+   "id": "core-mupen64plus-next",
+   "name": "Mupen64Plus-Next",
+   "kind": "core",
+   "platforms": [
+    "Nintendo 64"
+   ],
+   "license": "GPL-3.0",
+   "homepage": "https://www.libretro.com/",
+   "source": {
+    "type": "libretro_core",
+    "file": "mupen64plus_next_libretro"
+   }
+  },
+  {
+   "id": "core-melonds",
+   "name": "melonDS",
+   "kind": "core",
+   "platforms": [
+    "Nintendo DS"
+   ],
+   "license": "GPL-3.0",
+   "homepage": "https://www.libretro.com/",
+   "source": {
+    "type": "libretro_core",
+    "file": "melonds_libretro"
+   }
+  },
+  {
+   "id": "core-ppsspp",
+   "name": "PPSSPP",
+   "kind": "core",
+   "platforms": [
+    "PSP"
+   ],
+   "license": "GPL-2.0",
+   "homepage": "https://www.libretro.com/",
+   "source": {
+    "type": "libretro_core",
+    "file": "ppsspp_libretro"
+   }
+  },
+  {
+   "id": "core-swanstation",
+   "name": "SwanStation",
+   "kind": "core",
+   "platforms": [
+    "PlayStation"
+   ],
+   "license": "GPL-3.0",
+   "homepage": "https://www.libretro.com/",
+   "source": {
+    "type": "libretro_core",
+    "file": "swanstation_libretro"
+   },
+   "notes": "Pode exigir BIOS do PS1, que você mesmo deve fornecer."
+  },
+  {
+   "id": "core-flycast",
+   "name": "Flycast",
+   "kind": "core",
+   "platforms": [
+    "Dreamcast"
+   ],
+   "license": "GPL-2.0",
+   "homepage": "https://www.libretro.com/",
+   "source": {
+    "type": "libretro_core",
+    "file": "flycast_libretro"
+   },
+   "notes": "Pode exigir BIOS do Dreamcast, fornecida por você."
+  },
+  {
+   "id": "core-fbneo",
+   "name": "FinalBurn Neo",
+   "kind": "core",
+   "platforms": [
+    "Arcade"
+   ],
+   "license": "Não comercial (licença própria)",
+   "homepage": "https://www.libretro.com/",
+   "source": {
+    "type": "libretro_core",
+    "file": "fbneo_libretro"
+   }
+  },
+  {
+   "id": "core-stella",
+   "name": "Stella",
+   "kind": "core",
+   "platforms": [
+    "Atari 2600"
+   ],
+   "license": "GPL-2.0",
+   "homepage": "https://www.libretro.com/",
+   "source": {
+    "type": "libretro_core",
+    "file": "stella_libretro"
+   }
+  },
+  {
+   "id": "core-mednafen-pce-fast",
+   "name": "Beetle PCE Fast",
+   "kind": "core",
+   "platforms": [
+    "PC Engine"
+   ],
+   "license": "GPL-2.0",
+   "homepage": "https://www.libretro.com/",
+   "source": {
+    "type": "libretro_core",
+    "file": "mednafen_pce_fast_libretro"
+   }
+  }
+ ]
+}

@@ -19,7 +19,14 @@ jobs:
         run: cargo test --manifest-path src-tauri/Cargo.toml
       - name: Build exe
         run: npm run tauri build -- --no-bundle
+      - name: Package portable folder
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force RetrosTeam | Out-Null
+          Copy-Item src-tauri/target/release/retrosteam.exe RetrosTeam/RetrosTeam.exe
+          Set-Content -Encoding UTF8 RetrosTeam/LEIA-ME.txt "Abra RetrosTeam.exe. Tudo (emuladores, cores, jogos, saves, configuracoes) fica na pasta RetrosTeamData ao lado do exe. Para levar a outro PC, copie a pasta RetrosTeam inteira. Requer o WebView2 (ja vem no Windows 11)."
+          Compress-Archive -Path RetrosTeam -DestinationPath RetrosTeam-portable.zip
       - uses: actions/upload-artifact@v4
         with:
-          name: RetrosTeam-windows
-          path: src-tauri/target/release/retrosteam.exe
+          name: RetrosTeam-portable
+          path: RetrosTeam-portable.zip
